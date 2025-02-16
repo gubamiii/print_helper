@@ -273,7 +273,7 @@ class TelegramBot:
 
         elif update.message.photo:
             # Telegram автоматически конвертирует изображения в JPEG
-            file = update.message.photo[-1]  #  самую большую версию фото
+            file = update.message.photo[-1]
             file_name = f"photo_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
             file_obj = await file.get_file()
 
@@ -281,7 +281,6 @@ class TelegramBot:
             await update.message.reply_text(MESSAGES['unsupported_file_type'])
             return FILE
 
-        # Сохранение инфорации о файле
         context.user_data['file'] = file_obj
         context.user_data['original_filename'] = file_name
 
