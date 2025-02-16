@@ -1,0 +1,7 @@
+version: '3'
+services:
+  bot:
+    build: .
+    container_name: rsi_bot
+    restart: always
+    env_file: .env
